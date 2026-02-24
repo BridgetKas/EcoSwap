@@ -4,10 +4,16 @@ import path from "path";
 import Database from "better-sqlite3";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
+import { fileURLToPath } from "url";
+
 
 dotenv.config();
 
 const db = new Database("database.db");
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Initialize Database Schema
 db.exec(`
